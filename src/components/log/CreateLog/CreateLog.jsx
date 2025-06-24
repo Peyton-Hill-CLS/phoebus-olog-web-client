@@ -37,6 +37,7 @@ const CreateLog = ({ isAuthenticated }) => {
 
     setCreateInProgress(true);
     const body = {
+      ...('date' in formData) && {createdDate: formData.date},
       logbooks: formData.logbooks,
       tags: formData.tags,
       properties: formData.properties,

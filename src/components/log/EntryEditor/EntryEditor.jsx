@@ -17,6 +17,7 @@
  */
 import { useEffect, useRef } from "react";
 import { Button, Stack, Typography } from "@mui/material";
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { Description } from "./Description";
 import { TextInput } from "components/shared/input/TextInput";
 import LogbooksMultiSelect from "components/shared/input/managed/LogbooksMultiSelect";
@@ -115,6 +116,11 @@ export const EntryEditor = ({
             }
           }}
         />
+        <DateTimePicker
+          form={form}
+          name="date"
+          onChange={(value, context) => setValue("date", value._d.getTime())}
+          label="Optional Date & Time" />
         <Description
           form={form}
           attachmentsDisabled={attachmentsDisabled}
