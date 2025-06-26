@@ -97,6 +97,7 @@ const EditLog = ({ log, isAuthenticated }) => {
           title: `Edit Log "${log?.title}"`,
           onSubmit,
           onCancel,
+          renderDateTime: false,
           submitDisabled: !isAuthenticated,
           attachmentsDisabled: true
         }}

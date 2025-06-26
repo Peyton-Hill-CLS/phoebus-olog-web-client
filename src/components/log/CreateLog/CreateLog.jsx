@@ -94,6 +94,7 @@ const CreateLog = ({ isAuthenticated }) => {
           title: "Create New Log",
           onSubmit,
           onCancel,
+          renderDateTime: true,
           submitDisabled: !isAuthenticated
         }}
       />

@@ -31,6 +31,7 @@ export const EntryEditor = ({
   title,
   onSubmit,
   onCancel,
+  renderDateTime,
   submitDisabled,
   attachmentsDisabled
 }) => {
@@ -116,11 +117,12 @@ export const EntryEditor = ({
             }
           }}
         />
+        {renderDateTime &&
         <DateTimePicker
           form={form}
           name="date"
           onChange={(value, context) => setValue("date", value._d.getTime())}
-          label="Optional Date & Time" />
+          label="Optional Date & Time" />}
         <Description
           form={form}
           attachmentsDisabled={attachmentsDisabled}
