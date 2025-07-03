@@ -5,6 +5,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import EditIcon from "@mui/icons-material/Edit";
 import { FormattedDate } from "components/shared/FormattedDate";
 import { LogbookChip } from "src/components/log/LogbookChip";
+import { EntryTypeChip } from "src/components/log/EntryTypeChip";
 import { TagChip } from "src/components/log/TagChip";
 import { CommonMark } from "components/shared/CommonMark";
 
@@ -162,6 +163,13 @@ export const SearchResultSingleItem = ({
           gridColumn="span 2"
           sx={{ "& > div": { cursor: "pointer" } }}
         >
+          {log?.level && (
+            <EntryTypeChip
+              sx={{ fontSize: ".65rem", height: "20px" }}
+              key={log?.level}
+              value={log?.level}
+            />
+          )}
           {log?.logbooks?.map((it) => (
             <LogbookChip
               sx={{ fontSize: ".65rem", height: "20px" }}

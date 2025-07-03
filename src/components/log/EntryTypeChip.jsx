@@ -6,6 +6,7 @@ export const EntryTypeChip = ({ value, ...props }) => (
     size="small"
     variant="outlined"
     color="ologBlack"
+    //color="#de2fc6"
     {...props}
   />
 );

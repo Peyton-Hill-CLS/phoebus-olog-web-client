@@ -6,8 +6,10 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   base: "/",
   server: {
+    host: true,
     port: 3000,
-    open: true
+    open: true,
+    allowedHosts: ['svt-olog01.clsi.ca']
   },
   build: {
     outDir: "build",
