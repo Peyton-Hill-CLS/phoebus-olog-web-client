@@ -49,7 +49,9 @@ export const EntryEditor = ({
     if (!attachmentsDisabled) {
       setTimeout(() => {
         setValue("level", defaultLevel?.name);
-        setValue("logbooks", [defaultLogbook]);
+        if(typeof defaultLogbook !== 'undefined') {
+          setValue("logbooks", [defaultLogbook]);
+        }
       }, 0);
     }
   }, [defaultLevel, setValue, attachmentsDisabled]);
