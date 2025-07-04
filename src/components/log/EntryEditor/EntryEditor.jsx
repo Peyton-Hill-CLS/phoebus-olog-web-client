@@ -41,10 +41,15 @@ export const EntryEditor = ({
   const { data: levels } = ologApi.endpoints.getLevels.useQuery();
   const defaultLevel = levels?.find((level) => level?.defaultLevel);
 
+  const { data: logbooks = [], isLoading } =
+    ologApi.endpoints.getLogbooks.useQuery();
+  const defaultLogbook = logbooks?.find((logbook) => logbook?.defaultLogbook);
+
   useEffect(() => {
     if (!attachmentsDisabled) {
       setTimeout(() => {
         setValue("level", defaultLevel?.name);
+        setValue("logbooks", [defaultLogbook]);
       }, 0);
     }
   }, [defaultLevel, setValue, attachmentsDisabled]);

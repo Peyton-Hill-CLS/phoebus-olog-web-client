@@ -5,15 +5,12 @@ import { ologApi } from "api/ologApi";
 const LogbooksMultiSelect = styled(({ control, className, ...props }) => {
   const { data: logbooks = [], isLoading } =
     ologApi.endpoints.getLogbooks.useQuery();
-  const defaultLogbook = logbooks?.find((level) => level?.defaultloogbook);
-
 
   return (
     <MultiSelect
       className={className}
       name="logbooks"
       label="Logbooks"
-      value={[defaultLogbook]}
       control={control}
       options={logbooks}
       getOptionLabel={(logbook) => logbook.name}
