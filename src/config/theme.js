@@ -80,6 +80,46 @@ theme = createTheme(theme, {
   }
 });
 
+const colors = {
+  "entryRoutine": "#000000",
+  "entryFloorCoordinator": "#de2fc6",
+  "entryInjectionStart": "#01a204",
+  "entryInjectionEnd": "#0071b7",
+  "entryBeamlinesEnabled": "#80c0ff",
+  "entrySR1Trip": "#bb8900",
+  "entryLINAC": "#008000",
+  "entryTopUp": "#0000ff",
+  "entryStartofShift": "#3b8674",
+  "entryEndofShift": "#3b8674",
+  "entryImportant": "#ff0000",
+  "entryOnCallContact": "#ff0000",
+  "entryBeamOff": "#ff8000",
+  "entryZoneAccess": "#648444",
+  "entryLockup": "#8040ff",
+  "entryBypass": "#F5A608",
+  "entryComment": "#0000ff",
+  "entryCommentsfromBeamlines": "#de2fc6",
+  "entryMachineConfiguration": "#de2fc6",
+  "entryMaintenance": "#000000",
+}
+
+const customPalette = Object.fromEntries(
+  Object.entries(colors).map(([name, hex]) => [
+    name,
+    theme.palette.augmentColor({
+      color: { main: hex },
+      name,
+    }),
+  ])
+);
+
+
+theme = createTheme(theme, {
+  palette: {
+    ...customPalette,
+  }});
+
+
 // // Compose remaining overrides
 theme = createTheme(theme, {
   palette: {

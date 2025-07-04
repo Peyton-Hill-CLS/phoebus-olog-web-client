@@ -22,6 +22,7 @@ export const SearchResultSingleItem = ({
   const isCondensed = useSelector(
     (state) => state.advancedSearch.condensedEntries
   );
+  let entryColor = "entry" + log?.level.replaceAll(" ", "");
   return (
     <Stack
       px={4}
@@ -89,6 +90,7 @@ export const SearchResultSingleItem = ({
           fontWeight="bold"
           noWrap
           textOverflow="ellipsis"
+          sx={{ color: theme.palette[entryColor].main }}
         >
           {log.title}
         </Typography>
