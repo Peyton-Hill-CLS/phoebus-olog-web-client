@@ -3,6 +3,7 @@ import { LogAttachmentsHeader } from "./LogAttachmentsHeader";
 import LogProperty from "./LogProperty";
 import MetadataTable from "./MetadataTable";
 import { CommonMark } from "components/shared/CommonMark";
+import { theme } from "config/theme";
 
 const LogDetails = ({ log, className }) => {
   const filteredProperties = log?.properties?.filter(
@@ -10,6 +11,7 @@ const LogDetails = ({ log, className }) => {
       it.name.toLowerCase() !== "log entry group" &&
       it.state.toLowerCase() === "active"
   );
+  let entryColor = "entry" + log?.level.replaceAll(" ", "");
   return (
     <Stack
       className={`LogDetails ${className}`}
@@ -20,9 +22,9 @@ const LogDetails = ({ log, className }) => {
     >
       <LogAttachmentsHeader log={log} />
       <Typography
-        sx={{ fontSize: "1.4rem" }}
         component="h2"
         fontWeight="600"
+        sx={{ fontSize: "1.4rem", color: theme.palette[entryColor].main }}
       >
         {log.title}
       </Typography>
