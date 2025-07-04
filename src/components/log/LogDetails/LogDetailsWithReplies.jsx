@@ -16,8 +16,6 @@ import { ologApi } from "api/ologApi";
 import { getLogEntryGroupId } from "components/Properties";
 import { sortByCreatedDate } from "components/log/sort";
 import { useSearchPageParams } from "features/searchPageParamsReducer";
-import { theme } from "config/theme";
-
 
 const LogDetailsAccordion = styled(({ log, className, refProp }) => {
   const { id: paramLogId } = useParams();

@@ -8,6 +8,7 @@ import { LogbookChip } from "src/components/log/LogbookChip";
 import { EntryTypeChip } from "src/components/log/EntryTypeChip";
 import { TagChip } from "src/components/log/TagChip";
 import { CommonMark } from "components/shared/CommonMark";
+import { theme } from "config/theme";
 
 export const SearchResultSingleItem = ({
   log,
