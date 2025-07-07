@@ -98,6 +98,7 @@ const colors = {
   "entryLockup": "#8040ff",
   "entryBypass": "#F5A608",
   "entryComment": "#0000ff",
+  "entryShiftSummary": "#0000ff",
   "entryCommentsfromBeamlines": "#de2fc6",
   "entryMachineConfiguration": "#de2fc6",
   "entryMaintenance": "#000000",

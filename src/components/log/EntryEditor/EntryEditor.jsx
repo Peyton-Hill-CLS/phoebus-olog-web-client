@@ -25,7 +25,7 @@ import TagsMultiSelect from "components/shared/input/managed/TagsMultiSelect";
 import EntryTypeSelect from "components/shared/input/managed/EntryTypeSelect";
 import { PropertyCollectionInput } from "components/shared/input/managed/PropertyCollectionInput";
 import { ologApi } from "src/api/ologApi";
-import OperatorShiftSummary from "components/log/OperatorShiftSummary";
+import OperatorShiftSummary from "components/log/OperatorShiftSummary/OperatorShiftSummary";
 
 export const EntryEditor = ({
   form,
@@ -131,7 +131,10 @@ export const EntryEditor = ({
           name="date"
           onChange={(value, context) => setValue("date", value._d.getTime())}
           label="Optional Date & Time" />}
-        <OperatorShiftSummary/>
+        <OperatorShiftSummary
+          control={control}
+          disabled={false}
+          />
         <Description
           form={form}
           attachmentsDisabled={attachmentsDisabled}
