@@ -1,10 +1,10 @@
 import { Checkbox as MuiCheckbox, FormControlLabel } from "@mui/material";
 import { useController } from "react-hook-form";
 
-export const Checkbox = ({ name, label, control, onChange }) => {
+export const Checkbox = ({ name, label, control, rules, onChange }) => {
   const {
-    field: { ...field }
-  } = useController({ name, control });
+    field: { ...field },
+  } = useController({ name, control, rules, defaultValue:false});
   return (
     <FormControlLabel
       value="right"
@@ -17,7 +17,6 @@ export const Checkbox = ({ name, label, control, onChange }) => {
         />
       }
       label={label}
-      labelPlacement="right"
       sx={{ "& span": { fontSize: ".85rem" }, marginLeft: "0px" }}
     />
   );

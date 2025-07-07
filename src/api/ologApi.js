@@ -250,7 +250,7 @@ export const useVerifyLogExists = () => {
     async ({ logRequest, logResult }) => {
       return withRetry({
         fcn: async () =>
-          searchLogs({ title: `"${logResult.title}"`, end: "now" }).unwrap(),
+          searchLogs({ title: `"${logResult.title}"`, end: "now", sort: "down" }).unwrap(),
         retries: 5,
         retryCondition: (retryRes) => {
           // Retry if the entry we created isn't in the search results yet

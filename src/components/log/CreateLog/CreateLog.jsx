@@ -5,6 +5,8 @@ import useFormPersist from "react-hook-form-persist";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { EntryEditor } from "../EntryEditor";
 import { ologApi, useVerifyLogExists } from "api/ologApi";
+import { ShiftSummaryToMD } from "components/log/OperatorShiftSummary/OperatorShiftSummary";
+
 
 const CreateLog = ({ isAuthenticated }) => {
   const [createInProgress, setCreateInProgress] = useState(false);
@@ -36,6 +38,12 @@ const CreateLog = ({ isAuthenticated }) => {
     }
 
     setCreateInProgress(true);
+
+    let summaryData = "";
+    if(formData.level == "Shift Summary") {
+        summaryData = ShiftSummaryToMD(formData);
+    }
+
     const body = {
       ...('date' in formData) && {createdDate: formData.date},
       logbooks: formData.logbooks,
@@ -43,7 +51,7 @@ const CreateLog = ({ isAuthenticated }) => {
       properties: formData.properties,
       title: formData.title,
       level: formData.level,
-      description: formData.description,
+      description: (summaryData + formData.description),
       attachments: formData.attachments ?? []
     };
     try {
@@ -51,6 +59,7 @@ const CreateLog = ({ isAuthenticated }) => {
       const data = await createLog({ log: body }).unwrap();
       try {
         // Verify it is fully indexed/created before redirecting
+        console.log(data);
         await verifyLogExists({ logRequest: formData, logResult: data });
         clearFormData();
         setCreateInProgress(false);

@@ -25,7 +25,7 @@ import TagsMultiSelect from "components/shared/input/managed/TagsMultiSelect";
 import EntryTypeSelect from "components/shared/input/managed/EntryTypeSelect";
 import { PropertyCollectionInput } from "components/shared/input/managed/PropertyCollectionInput";
 import { ologApi } from "src/api/ologApi";
-import OperatorShiftSummary from "components/log/OperatorShiftSummary/OperatorShiftSummary";
+import { OperatorShiftSummary } from "components/log/OperatorShiftSummary/OperatorShiftSummary";
 
 export const EntryEditor = ({
   form,
@@ -37,7 +37,7 @@ export const EntryEditor = ({
   attachmentsDisabled
 }) => {
   const topElem = useRef();
-  const { control, handleSubmit, formState, setValue } = form;
+  const { control, handleSubmit, formState, setValue, getValues } = form;
 
   const { data: levels } = ologApi.endpoints.getLevels.useQuery();
   const defaultLevel = levels?.find((level) => level?.defaultLevel);
@@ -133,7 +133,8 @@ export const EntryEditor = ({
           label="Optional Date & Time" />}
         <OperatorShiftSummary
           control={control}
-          disabled={false}
+          form={form}
+          disabled={!renderDateTime || (getValues("level") != "Shift Summary")}
           />
         <Description
           form={form}
