@@ -17,7 +17,7 @@ import { theme } from "src/config/theme";
 const ShiftSummaryToMD = function(formData) {
   let padding = "";
   for(var x = 0; x < 20; x++) {
-    padding += "nbsp;"
+    padding += "&nbsp;"
   }
 
 
