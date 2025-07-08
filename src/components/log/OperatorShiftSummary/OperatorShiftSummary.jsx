@@ -28,7 +28,7 @@ const ShiftSummaryToMD = function(formData) {
 
 ## Incoming Operators
 
-| Operator ${padding}              | Certifications ${padding}                  |
+| ${padding} Operator ${padding}   | ${padding} Certifications ${padding}       |
 |----------------------------------|:------------------------------------------:|
 | **Operator A:** ${formData.summary_in_operator_a} | ${formData.summary_in_a_op ? "✓" : "☐"} Op.&nbsp;&nbsp; ${formData.summary_in_a_fc ? "✓" : "☐"} FC&nbsp;&nbsp; ${formData.summary_in_a_dshift ? "✓" : "☐"} D-Shift |
 | **Operator B:** ${formData.summary_in_operator_b} | ${formData.summary_in_b_op ? "✓" : "☐"} Op.&nbsp;&nbsp; ${formData.summary_in_b_fc ? "✓" : "☐"} FC&nbsp;&nbsp; ${formData.summary_in_b_dshift ? "✓" : "☐"} D-Shift |
@@ -38,8 +38,8 @@ ${formData.summary_N ? "✓" : "☐"} N &nbsp;&nbsp;&nbsp;&nbsp;${formData.summa
 
 ## Crossover Wiki
 
-| Updated? ${padding}        | Checked? ${padding}      |
-|:--------------------------:|:------------------------:|
+| ${padding} Updated? ${padding} | ${padding} Checked? ${padding} |
+|:------------------------------:|:------------------------------:|
 | ${formData.summary_updated_a ? "✓" : "☐"} Outgoing Op. A     | ${formData.summary_checked_a ? "✓" : "☐"} Incoming Op. A   |
 | ${formData.summary_updated_b ? "✓" : "☐"} Outgoing Op. B     | ${formData.summary_checked_b ? "✓" : "☐"} Incoming Op. B   |
 ## Other notes:
