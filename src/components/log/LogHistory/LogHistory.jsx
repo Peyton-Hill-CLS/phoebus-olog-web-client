@@ -108,7 +108,7 @@ const LogHistory = ({ currentLog, logHistory }) => {
             return (
               <Paper
                 key={id}
-                elevation={3}
+                elevation={0}
                 sx={{
                   margin: "10px 0",
                   "&:last-child": { marginBottom: "25px" }

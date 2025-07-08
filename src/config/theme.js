@@ -20,67 +20,17 @@ import { createTheme } from "@mui/material";
 
 export let theme = createTheme({});
 
-// Compose ESS Colors
-theme = createTheme(theme, {
-  palette: {
-    ologCyan: theme.palette.augmentColor({
-      color: {
-        main: "#0099dc"
-      },
-      name: "ologCyan"
-    }),
-    ologBlack: theme.palette.augmentColor({
-      color: {
-        main: "#000000"
-      },
-      name: "ologBlack"
-    }),
-    ologWhite: theme.palette.augmentColor({
-      color: {
-        main: "#ffffff"
-      },
-      name: "ologWhite"
-    }),
-    ologPurple: theme.palette.augmentColor({
-      color: {
-        main: "#821482"
-      },
-      name: "ologPurple"
-    }),
-    ologOrange: theme.palette.augmentColor({
-      color: {
-        main: "#ff7d00"
-      },
-      name: "ologOrange"
-    }),
-    ologForest: theme.palette.augmentColor({
-      color: {
-        main: "#006646"
-      },
-      name: "ologForest"
-    }),
-    ologGrass: theme.palette.augmentColor({
-      color: {
-        main: "#99be00"
-      },
-      name: "ologGrass"
-    }),
-    ologNavy: theme.palette.augmentColor({
-      color: {
-        main: "#003366"
-      },
-      name: "ologNavy"
-    }),
-    ologRed: theme.palette.augmentColor({
-      color: {
-        main: "#800000"
-      },
-      name: "ologRed"
-    })
-  }
-});
-
 const colors = {
+  "ologCyan": "#0099dc",
+  "ologBlack": "#000000",
+  "ologWhite": "#ffffff",
+  "ologPurple": "#821482",
+  "ologOrange": "#ff7d00",
+  "ologForest": "#006646",
+  "ologGrass": "#99be00",
+  "ologNavy": "#003366",
+  "ologRed": "#800000",
+
   "entryRoutine": "#000000",
   "entryFloorCoordinator": "#de2fc6",
   "entryInjectionStart": "#01a204",
@@ -102,6 +52,12 @@ const colors = {
   "entryCommentsfromBeamlines": "#de2fc6",
   "entryMachineConfiguration": "#de2fc6",
   "entryMaintenance": "#000000",
+
+  "ologHover": "#ECF0F3",
+  "ologReply": "#0099dc24",
+  "ologLine" : "#dedede",
+  "ologNeutralGrey" : "#757575",
+  "ologSpacer" : "#CCCCCC"
 }
 
 const customPalette = Object.fromEntries(

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, CircularProgress, Stack, styled } from "@mui/material";
+import { Box, CircularProgress, Stack, styled, Paper } from "@mui/material";
 import { SearchResultSingleItem } from "./SearchResultSingleItem";
 import { SearchResultGroupItem } from "./SearchResultGroupItem/SearchResultGroupItem";
 import { getLogEntryGroupId } from "components/Properties";
@@ -32,6 +32,19 @@ export const SearchResultList = styled(
         }
       }, []);
     };
+
+
+    const areDifferentDays = (epoch1, epoch2) => {
+      const date1 = new Date(epoch1);
+      const date2 = new Date(epoch2);
+
+      return (
+        date1.getFullYear() !== date2.getFullYear() ||
+        date1.getMonth() !== date2.getMonth() ||
+        date1.getDate() !== date2.getDate()
+      );
+    }
+
 
     const logsWithGroupIds = useMemo(
       () =>
@@ -100,6 +113,8 @@ export const SearchResultList = styled(
       }
     }, [searchResultListRef, loadMoreLogsRef, dispatch]);
 
+    let key=0;
+    let lastLogTime = 0;
     return (
       <Stack
         ref={searchResultListRef}
@@ -122,6 +137,9 @@ export const SearchResultList = styled(
                   />
                 );
               } else {
+                const time = log.modifyDate ?? log.createdDate;
+                const addSpacer = lastLogTime == 0 ? false : areDifferentDays(time, lastLogTime);
+                lastLogTime = time;
                 return (
                   <SearchResultSingleItem
                     key={log.id}
@@ -129,11 +147,15 @@ export const SearchResultList = styled(
                     selected={`${currentLogEntryId}` === `${log.id}`}
                     onClick={navigateToEntry}
                     handleKeyDown={handleKeyDown}
+                    addSpacer={addSpacer}
                   />
                 );
               }
             })
           : logsWithGroupIds.map((log) => {
+              const time = log.modifyDate ?? log.createdDate;
+              const addSpacer = lastLogTime == 0 ? false : areDifferentDays(time, lastLogTime);
+              lastLogTime = time;
               return (
                 <SearchResultSingleItem
                   key={log.id}
@@ -142,9 +164,11 @@ export const SearchResultList = styled(
                   onClick={navigateToEntry}
                   handleKeyDown={handleKeyDown}
                   isReply={!!log.groupId}
+                  addSpacer={addSpacer}
                 />
               );
-            })}
+            })
+        }
         <Box ref={loadMoreLogsRef}>
           {isFetchingSearchResults && (
             <Box
@@ -154,7 +178,7 @@ export const SearchResultList = styled(
             >
               <CircularProgress
                 size="1.5rem"
-                sx={{ color: "#757575" }}
+                sx={{ color: 'ologNeutralGrey.main' }}
               />
             </Box>
           )}

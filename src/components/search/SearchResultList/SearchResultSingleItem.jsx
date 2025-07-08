@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Stack, Tooltip, Typography } from "@mui/material";
+import { Stack, Tooltip, Typography, Paper, Box } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import EditIcon from "@mui/icons-material/Edit";
@@ -18,19 +18,24 @@ export const SearchResultSingleItem = ({
   expandIcon,
   handleKeyDown,
   isNestedReply,
-  isParentNestedLog
+  isParentNestedLog,
+  addSpacer
 }) => {
   const isCondensed = useSelector(
     (state) => state.advancedSearch.condensedEntries
   );
   let entryColor = "entry" + log?.level.replaceAll(" ", "");
-  return (
+  return [(
+    <Stack>
+      {addSpacer && <Box sx={{height: "10px", bgcolor: 'ologSpacer.main'}}/>}
+    </Stack>), (
+
     <Stack
       px={4}
       py={!isCondensed ? 0.6 : 0.8}
       sx={{
         position: "relative",
-        borderBottom: "1px solid #dedede",
+        borderBottom: `1px solid ${theme.palette.ologLine.main}`,
         borderRadius: "1px",
         "&:focus": {
           outline: "none"
@@ -38,7 +43,7 @@ export const SearchResultSingleItem = ({
         ...(!selected && {
           "&:hover": {
             cursor: "pointer",
-            backgroundColor: "#ECF0F3"
+            backgroundColor: "ologHover.main"
           }
         }),
         ...(selected && {
@@ -46,7 +51,7 @@ export const SearchResultSingleItem = ({
             cursor: "pointer"
           },
           borderRadius: "1px",
-          backgroundColor: "#0099dc24"
+          backgroundColor: "ologReply.main"
         }),
         ...(isNestedReply && {
           paddingLeft: "55px"
@@ -191,6 +196,5 @@ export const SearchResultSingleItem = ({
         </Stack>
       )}
       {expandIcon}
-    </Stack>
-  );
+      </Stack>)];
 };
