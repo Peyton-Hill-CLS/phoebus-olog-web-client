@@ -2,12 +2,13 @@ import SortIcon from "@mui/icons-material/Sort";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { Badge, IconButton, Tooltip } from "@mui/material";
+import { theme } from "src/config/theme";
 
 export const SortToggleButton = ({ isDescending, onClick, label }) => {
   return (
     <IconButton
       aria-label={`sort by ${label}, ${isDescending ? "descending" : "ascending"}`}
-      sx={{ color: "#616161" }}
+      sx={{ color: `${theme.palette.ologIcon.main}`, "&:hover": { backgroundColor: `${theme.palette.ologLightLine.main}`} }}
       onClick={onClick}
     >
       <Tooltip

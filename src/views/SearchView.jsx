@@ -2,6 +2,7 @@ import { Box, Divider, styled } from "@mui/material";
 import { useParams } from "react-router-dom";
 import LogDetailsContainer from "src/components/log/LogDetails/LogDetailsContainer";
 import { SearchResults } from "components/search";
+import { theme } from "src/config/theme";
 
 const ContentView = styled(Box)(({ theme }) => ({
   display: "grid",
@@ -31,12 +32,12 @@ const SearchView = styled(({ className }) => {
     <Box height="100%">
       <ContentView className={`SearchView ${className}`}>
         <Divider
-          sx={{ borderColor: "#E2E8EE" }}
+          sx={{ borderColor: `${theme.palette.ologLine.main}` }}
           orientation="vertical"
         />
         <SearchResults />
         <Divider
-          sx={{ borderColor: "#E2E8EE" }}
+          sx={{ borderColor: `${theme.palette.ologLine.main}` }}
           orientation="vertical"
         />
         <LogDetailsContainer id={id} />

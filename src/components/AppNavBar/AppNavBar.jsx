@@ -78,8 +78,8 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
       <AppBar
         sx={{
           backgroundColor: "transparent",
-          borderBottom: "1px solid #E2E8EE",
-          color: "#0099dc"
+          borderBottom: `1px solid ${theme.palette.ologNavbar.main}`,
+          color: `${theme.palette.primary.main}`
         }}
         component={"header"}
         position="static"
@@ -114,7 +114,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
           }}
         >
           <Divider
-            sx={{ borderColor: "#E2E8EE" }}
+            sx={{ borderColor: `${theme.palette.ologNavbar.main}` }}
             orientation="vertical"
           />
           {onHomePage(pathname) && (
@@ -136,12 +136,12 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
                       sx={{
                         marginRight: "10px",
                         backgroundColor: advancedSearchOpen
-                          ? "#dedede"
+                          ? `${theme.palette.ologLine.main}`
                           : "inherit",
                         "&:hover": {
                           backgroundColor: advancedSearchOpen
-                            ? "#dedede"
-                            : "#F5F5F5"
+                            ? `${theme.palette.ologLine.main}`
+                            : `${theme.palette.ologLightLine.main}`
                         }
                       }}
                       onClick={() => setAdvancedSearchOpen((prev) => !prev)}
@@ -156,7 +156,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
                           }
                           color="primary"
                         >
-                          <FilterAltIcon sx={{ color: "#616161" }} />
+                          <FilterAltIcon sx={{ color: `${theme.palette.ologIcon.main}` }} />
                         </Badge>
                       </Tooltip>
                     </IconButton>
@@ -170,7 +170,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
                 </Stack>
               </nav>
               <Divider
-                sx={{ borderColor: "#E2E8EE" }}
+                sx={{ borderColor: `${theme.palette.ologNavbar.main}` }}
                 orientation="vertical"
               />
             </>

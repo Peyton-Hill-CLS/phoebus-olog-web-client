@@ -20,7 +20,51 @@ import { createTheme } from "@mui/material";
 
 export let theme = createTheme({});
 
-const colors = {
+const dark = false;
+
+const colors = dark ? {
+  "ologCyan": "#0099dc",
+  "ologBlack": "#ffffff",
+  "ologWhite": "#000000",
+  "ologPurple": "#821482",
+  "ologOrange": "#ff7d00",
+  "ologForest": "#006646",
+  "ologGrass": "#99be00",
+  "ologNavy": "#003366",
+  "ologRed": "#800000",
+
+  "entryRoutine": "#ffffff",
+  "entryFloorCoordinator": "#de2fc6",
+  "entryInjectionStart": "#01a204",
+  "entryInjectionEnd": "#0071b7",
+  "entryBeamlinesEnabled": "#80c0ff",
+  "entrySR1Trip": "#bb8900",
+  "entryLINAC": "#008000",
+  "entryTopUp": "#0000ff",
+  "entryStartofShift": "#3b8674",
+  "entryEndofShift": "#3b8674",
+  "entryImportant": "#ff0000",
+  "entryOnCallContact": "#ff0000",
+  "entryBeamOff": "#ff8000",
+  "entryZoneAccess": "#648444",
+  "entryLockup": "#8040ff",
+  "entryBypass": "#F5A608",
+  "entryComment": "#0000ff",
+  "entryShiftSummary": "#0000ff",
+  "entryCommentsfromBeamlines": "#de2fc6",
+  "entryMachineConfiguration": "#de2fc6",
+  "entryMaintenance": "#ffffff",
+
+  "ologHover": "#404444",
+  "ologReply": "#0099dc24",
+  "ologLine" : "#404444",
+  "ologNeutralGrey" : "#757575",
+  "ologSpacer" : "#CCCCCC",
+  "ologIcon" : "#616161",
+  "ologLightLine": "#F3F5F7",
+  "ologEntry": "#1a1d21",
+  "ologNavbar": "#202224"
+} : {
   "ologCyan": "#0099dc",
   "ologBlack": "#000000",
   "ologWhite": "#ffffff",
@@ -54,11 +98,16 @@ const colors = {
   "entryMaintenance": "#000000",
 
   "ologHover": "#ECF0F3",
-  "ologReply": "#0099dc24",
+  "ologSelected": "#0099dc24",
   "ologLine" : "#dedede",
   "ologNeutralGrey" : "#757575",
-  "ologSpacer" : "#CCCCCC"
+  "ologSpacer" : "#CCCCCC",
+  "ologIcon" : "#616161",
+  "ologLightLine": "#F3F5F7",
+  "ologEntry": "#fafafa",
+  "ologNavbar": "#E2E8EE"
 }
+
 
 const customPalette = Object.fromEntries(
   Object.entries(colors).map(([name, hex]) => [
@@ -91,6 +140,12 @@ theme = createTheme(theme, {
         main: theme.palette.grey[700]
       },
       name: "secondary"
+    }),
+    text: theme.palette.augmentColor({
+      color: {
+        main: theme.palette.ologBlack.main
+      },
+      name: "text"
     }),
     status: {
       ok: theme.palette.success.main,

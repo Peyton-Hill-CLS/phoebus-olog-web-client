@@ -18,6 +18,8 @@ import {
   defaultSearchParams,
   useSearchParams
 } from "src/features/searchParamsReducer";
+import { theme } from "src/config/theme";
+
 
 export const SearchResultGroupItem = styled(
   ({ log, onClick = () => {}, handleKeyDown, dateDescending }) => {
@@ -83,7 +85,7 @@ export const SearchResultGroupItem = styled(
         sx={{ cursor: "pointer", width: "fit-content" }}
       >
         <IconButton
-          sx={{ color: "#0099db", padding: "0 5px 0 0" }}
+          sx={{ color: `${theme.palette.primary.main}`, padding: "0 5px 0 0" }}
           size="small"
           aria-expanded={expanded ? "true" : "false"}
         >
@@ -94,7 +96,7 @@ export const SearchResultGroupItem = styled(
           )}
         </IconButton>
         <Typography
-          color="#0099db"
+          color="primary.main"
           variant="body2"
         >
           ({nestedLogsCount}) {expanded ? "Hide" : "Show"} group

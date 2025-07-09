@@ -40,7 +40,7 @@ const LogHistoryHeader = ({ log }) => (
       sx={{
         marginTop: "15px",
         borderWidth: "1.25px",
-        borderColor: "#F3F5F7"
+        borderColor: "ologLightLine.main"
       }}
     />
   </Box>

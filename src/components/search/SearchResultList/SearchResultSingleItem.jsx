@@ -51,7 +51,7 @@ export const SearchResultSingleItem = ({
             cursor: "pointer"
           },
           borderRadius: "1px",
-          backgroundColor: "ologReply.main"
+          backgroundColor: "ologSelected.main"
         }),
         ...(isNestedReply && {
           paddingLeft: "55px"
@@ -104,7 +104,7 @@ export const SearchResultSingleItem = ({
           flexDirection="row"
           alignItems="center"
           gap={0.5}
-          sx={{ "& > svg": { color: "#616161" } }}
+          sx={{ "& > svg": { color: `${theme.palette.ologIcon.main}` } }}
           mt={0.8}
         >
           {log?.attachments?.length > 0 && (

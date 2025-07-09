@@ -74,7 +74,7 @@ export const SearchResults = styled(({ className }) => {
     <Stack
       className={`SearchResultList ${className}`}
       position="relative"
-      sx={{ backgroundColor: "#fafafa", minHeight: 0 }}
+      sx={{ backgroundColor: "ologEntry.main", minHeight: 0 }}
     >
       {advancedSearchActive && (
         <Box>

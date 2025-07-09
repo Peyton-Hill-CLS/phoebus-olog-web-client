@@ -104,7 +104,7 @@ const SimpleSearch = () => {
           ),
           sx: {
             fontSize: ".9rem",
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "ologLightLine.main",
             "& .MuiInputBase-input": {
               padding: "10px 0",
               paddingRight: 0

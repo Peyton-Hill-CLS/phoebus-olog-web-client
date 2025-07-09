@@ -16,6 +16,8 @@ import { ologApi } from "api/ologApi";
 import { getLogEntryGroupId } from "components/Properties";
 import { sortByCreatedDate } from "components/log/sort";
 import { useSearchPageParams } from "features/searchPageParamsReducer";
+import { theme } from "src/config/theme";
+
 
 const LogDetailsAccordion = styled(({ log, className, refProp }) => {
   const { id: paramLogId } = useParams();
@@ -37,14 +39,14 @@ const LogDetailsAccordion = styled(({ log, className, refProp }) => {
       square
       sx={{
         "& > .MuiButtonBase-root": { padding: 0 },
-        border: isSelected ? "2px solid #0099dc24" : "2px solid #F3F5F7"
+        border: isSelected ? `2px solid ${theme.palette.ologSelected.main}` : `2px solid ${theme.palette.ologLightLine.main}`
       }}
     >
       <AccordionSummary
         aria-controls={`${log.id}-content`}
         id={`${log.id}-header`}
         sx={{
-          bgcolor: isSelected ? "#0099dc24" : "#f2f5f7",
+          bgcolor: isSelected ? `${theme.palette.ologSelected.main}` : `${theme.palette.ologLightLine.main}`,
           userSelect: "text",
           "&.Mui-expanded": {
             minHeight: 0
@@ -135,7 +137,7 @@ const LogDetailsWithReplies = ({ log }) => {
     const sortedLogs = [
       log,
       ...replies.filter((it) => it.id !== log.id)
-    ].toSorted(sortByCreatedDate(dateDescending));
+    ].toSorted(sortByCreatedDate(dateDescending)).reverse();
 
     return (
       <Stack
@@ -168,7 +170,7 @@ const LogDetailsWithReplies = ({ log }) => {
       <Box sx={{ border: "2px solid transparent", borderRadius: "4px" }}>
         <Box
           borderRadius="4px"
-          bgcolor="#f2f5f7"
+          bgcolor='ologLightLine.main'
         >
           <LogHeader log={log} />
         </Box>
