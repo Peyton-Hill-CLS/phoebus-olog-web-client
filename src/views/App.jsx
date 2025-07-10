@@ -35,7 +35,7 @@ const Overlay = styled("div")(({ theme }) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: `${theme.palette.ologBackground.main}`,
     zIndex: 2
   }
 }));
@@ -45,9 +45,10 @@ const cookies = new Cookies();
 const App = styled(({ className }) => {
   const searchParams = useSearchParams();
   const { pathname } = useLocation();
-  const [advancedSearchOpen, setAdvancedSearchOpen] = useState(false);
+  const [advancedSearchOpen, setAdvancedSearchOpen ] = useState(false);
 
   useEffect(() => {
+    document.body.style.backgroundColor = `${theme.palette.ologBackground.main}`;
     // Reset cookies if the version has changed
     const versionCookie = cookies.get(customization.versionCookie);
     if (!versionCookie || versionCookie !== customization.VERSION) {

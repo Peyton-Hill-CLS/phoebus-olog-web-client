@@ -78,14 +78,14 @@ const Modal = ({
       {...DialogProps}
     >
       {title ? <ModalTitle onClose={onClose}>{title}</ModalTitle> : null}
-      <DialogContent className={className}>
+      <DialogContent className={className} sx={{ backgroundColor:"ologBackground.main" }}>
         {typeof content === "string" ? (
           <DialogContentText>{content}</DialogContentText>
         ) : (
           <>{content}</>
         )}
       </DialogContent>
-      {actions ? <DialogActions>{actions}</DialogActions> : null}
+      {actions ? <DialogActions sx={{ backgroundColor: "ologBackground.main" }}>{actions}</DialogActions> : null}
     </Dialog>
   );
 };

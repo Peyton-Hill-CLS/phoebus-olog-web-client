@@ -30,12 +30,13 @@ import {
   Box,
   Tooltip
 } from "@mui/material";
+import { useState } from "react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import LockIcon from "@mui/icons-material/Lock";
 import HomeIcon from "@mui/icons-material/Home";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Initialize from "components/Initialize";
 import { InternalButtonLink } from "components/shared/Link";
 import { useShowLogin, useShowLogout, useUser } from "features/authSlice";
@@ -43,6 +44,7 @@ import LoginDialog from "components/LoginLogout/LoginDialog";
 import LogoutDialog from "components/LoginLogout/LogoutDialog";
 import { useAdvancedSearch } from "features/advancedSearchReducer";
 import SimpleSearch from "components/search/SimpleSearch";
+import DaySearch from "components/search/DaySearch";
 import { SortToggleButton } from "components/search/SortToggleButton";
 import { defaultSearchParams } from "features/searchParamsReducer";
 import {
@@ -64,6 +66,8 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
   const searchPageParams = useSearchPageParams();
   const dispatch = useDispatch();
   const { setShowLogout } = useShowLogout();
+  
+  const individualDays = useSelector((state) => state.advancedSearch.individualDays);
 
   const toggleSort = () => {
     dispatch(
@@ -77,7 +81,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
     <Initialize>
       <AppBar
         sx={{
-          backgroundColor: "transparent",
+          backgroundColor: "ologBackground.main",
           borderBottom: `1px solid ${theme.palette.ologNavbar.main}`,
           color: `${theme.palette.primary.main}`
         }}
@@ -110,7 +114,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
               "& > hr": {
                 display: "none"
               }
-            }
+            },
           }}
         >
           <Divider
@@ -129,7 +133,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
                   alignItems="center"
                   sx={{ height: "100%" }}
                 >
-                  <SimpleSearch />
+		  { individualDays ? <DaySearch /> : <SimpleSearch />}
 
                   <Box sx={{ minWidth: "100px", flex: 1 }}>
                     <IconButton
@@ -210,7 +214,7 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
                 variant="h6"
                 component="span"
               >
-                ESS Logbook
+                CLS Logbook
               </Typography>
             </Button>
             <nav aria-label="user menu">

@@ -10,7 +10,7 @@ export const Checkbox = ({ name, label, control, rules, onChange }) => {
       value="right"
       control={
         <MuiCheckbox
-          sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
+          sx={{ "& .MuiSvgIcon-root": { fontSize: 20 }, color: "ologIcon.main" }}
           {...field}
           checked={field.value}
           onChange={(e, value) => onChange(field, value)}

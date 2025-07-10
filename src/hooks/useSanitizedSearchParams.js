@@ -118,6 +118,7 @@ export function withoutParams(searchParams) {
   }
   delete copy.groupedReplies;
   delete copy.condensedEntries;
+  delete copy.individualDays;
   return copy;
 }
 

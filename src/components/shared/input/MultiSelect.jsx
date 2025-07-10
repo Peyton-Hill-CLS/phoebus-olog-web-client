@@ -20,8 +20,10 @@ import {
   Autocomplete,
   CircularProgress,
   TextField,
-  styled
+  styled,
+  Chip
 } from "@mui/material";
+import { theme } from "src/config/theme.js";
 
 const MultiSelect = styled(
   ({
@@ -58,7 +60,8 @@ const MultiSelect = styled(
         options={options}
         getOptionLabel={getOptionLabel}
         isOptionEqualToValue={isOptionEqualToValue}
-        renderInput={(params) => (
+	renderInput={(params) => {
+		return (
           <TextField
             {...params}
             label={label}
@@ -78,10 +81,10 @@ const MultiSelect = styled(
                   ) : null}
                   {params.InputProps.endAdornment}
                 </>
-              )
+              ),
             }}
           />
-        )}
+        )}}
         multiple={isMulti}
         filterSelectedOptions={isMulti}
         selectOnFocus
@@ -89,20 +92,29 @@ const MultiSelect = styled(
         handleHomeEndKeys
         disablePortal
         sx={{
-          "& .MuiAutocomplete-tag": { fontSize: ".8rem", height: "30px" },
+          "& .MuiAutocomplete-tag": { fontSize: ".8rem", height: "30px", color: "ologBlack.main", border: `1px solid ${theme.palette.ologIcon.main}`,
+		'& .MuiChip-deleteIcon': { color: 'ologIcon.main'},
+	  },
           "& .MuiFormLabel-root": {
             fontSize: ".9rem",
             top: "-4px"
           },
           "& .MuiInputLabel-shrink": { top: 0 },
           "& .MuiInputBase-root": { padding: "6px 9px", fontSize: ".9rem" },
-          "& .MuiInputBase-input": { fontSize: ".9rem" },
-          "& .MuiAutocomplete-popper": { fontSize: ".9rem" }
-        }}
+          "& .MuiInputBase-input": { fontSize: ".9rem", color: "ologBlack.main" },
+          "& .MuiAutocomplete-popper": { fontSize: ".9rem" },
+	  "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
+  	  "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
+  	  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
+  	  "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" },
+	  "& .MuiAutocomplete-endAdornment svg": { color: 'ologIcon.main' },
+	}}
         ListboxProps={{
           sx: {
-            fontSize: ".95rem"
-          }
+            fontSize: ".95rem",
+            border: `1px solid ${theme.palette.ologLine.main}`,
+	    backgroundColor: "ologBackground.main"
+	  }
         }}
         {...props}
       />

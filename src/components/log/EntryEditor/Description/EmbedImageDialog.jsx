@@ -213,6 +213,12 @@ const EmbedImageDialog = ({
             variant="contained"
             disabled={imageAttachment === null}
             onClick={handleSubmit}
+            sx={{
+              "&.Mui-disabled": {
+                background: "ologLightLine.main",
+                color: "ologLine.main"
+              }
+            }}
           >
             Confirm Embed
           </Button>

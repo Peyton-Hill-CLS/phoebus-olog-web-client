@@ -55,11 +55,12 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
         padding: advancedSearchOpen ? "18px 8px" : "18px 0",
         height: "100vh",
         overflow: "auto",
+	backgroundColor: "ologBackground.main",
         [theme.breakpoints.down("md")]: {
           width: advancedSearchOpen ? "240px" : 0,
           position: "fixed",
           zIndex: 3,
-          backgroundColor: theme.palette.background.paper
+          backgroundColor: theme.palette.ologBackground.main
         }
       }}
     >
@@ -173,7 +174,14 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
           flexDirection="column"
           alignItems="flex-start"
         >
-          <Checkbox
+          <Button
+            onClick={clearFilters}
+            sx={{ marginRight: "10px", alignSelf: "flex-end" }}
+          >
+            Reset filters
+          </Button>
+
+	  <Checkbox
             name="groupedReplies"
             label="Grouped replies"
             control={control}
@@ -185,13 +193,13 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
             control={control}
             onChange={handleSelectChange}
           />
-          <Button
-            onClick={clearFilters}
-            sx={{ marginRight: "10px", alignSelf: "flex-end" }}
-          >
-            Reset filters
-          </Button>
-          <Button
+	  <Checkbox
+	    name="individualDays"
+	    label="Individual Days"
+	    control={control}
+	    onChange={handleSelectChange}
+	  />
+                    <Button
             type="submit"
             sx={{ display: "none" }}
           />

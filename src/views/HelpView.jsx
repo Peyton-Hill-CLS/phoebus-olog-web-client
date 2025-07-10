@@ -13,6 +13,7 @@ export const HelpView = () => {
       margin="0 auto"
       paddingX={4}
       maxWidth="800px"
+      sx={{ backgroundColor: "ologBackground.main" }}
     >
       <Help
         summary={summary}

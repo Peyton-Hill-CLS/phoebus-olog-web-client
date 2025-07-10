@@ -19,6 +19,7 @@ const LogDetails = ({ log, className }) => {
       pt={1}
       pb={1.5}
       px={3}
+      sx= {{ backgroundColor: "ologBackground.main" }}
     >
       <LogAttachmentsHeader log={log} />
       <Typography

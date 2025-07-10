@@ -18,7 +18,8 @@ export const defaultSearchParams = {
   tags: [],
   attachments: "",
   groupedReplies: true,
-  condensedEntries: false
+  condensedEntries: false,
+  individualDays: true
 };
 export const defaultSearchParamsState = {
   ...defaultSearchParams,

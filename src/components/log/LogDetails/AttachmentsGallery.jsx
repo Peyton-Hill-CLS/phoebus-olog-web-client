@@ -92,14 +92,14 @@ const GalleryView = ({ attachments, onPrevious, onNext, currentIndex }) => {
         <Box>
           <IconButton
             onClick={onPrevious}
-            sx={{ height: "min-content", marginRight: "16px" }}
+            sx={{ height: "min-content", marginRight: "16px", color: "ologIcon.main" }}
             disabled={currentIndex === 0}
           >
             <NavigateBeforeIcon />
           </IconButton>
           <IconButton
             onClick={onNext}
-            sx={{ height: "min-content", marginLeft: "16px" }}
+            sx={{ height: "min-content", marginLeft: "16px", color: "ologIcon.main" }}
             disabled={currentIndex === attachments.length - 1}
           >
             <NavigateNextIcon />

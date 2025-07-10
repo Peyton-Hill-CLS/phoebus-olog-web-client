@@ -133,6 +133,10 @@ export const ButtonDatePicker = ({
 
   return (
     <DateTimePicker
+      sx={{
+	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologLine.main' },
+	    '&:hover .MuiOutlinedInput-notchedOutline': {borderColor: 'ologDarkLine.main'},
+      }}
       value={value ? moment(value) : null}
       slots={{
         field: ButtonField,
@@ -152,7 +156,12 @@ export const ButtonDatePicker = ({
               }
             }
           }
-        }
+        },
+	textField: {
+	  sx: {'& .MuiInputBase-root': { backgroundColor: '#ologBackground.main'},
+      },
+    },
+
       }}
       open={open}
       onClose={() => setOpen(false)}
@@ -224,8 +233,12 @@ const WizardDateInput = styled(
             top: "-4px"
           },
           "& .MuiInputLabel-shrink": { top: "0" },
-          "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem" }
-        }}
+          "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' }, 
+	  "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
+  	  "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
+  	  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
+  	  "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" } 
+	}}
         {...props}
       />
     );

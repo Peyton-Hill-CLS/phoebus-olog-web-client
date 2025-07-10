@@ -24,6 +24,7 @@ import PropertyInput from "./PropertyInput";
 import PropertySelector from "./PropertySelector";
 import Modal from "components/shared/Modal";
 import { ologApi } from "api/ologApi";
+import { theme} from "src/config/theme.js";
 
 const PropertyCollectionInput = ({ control, className }) => {
   const [showAddProperty, setShowAddProperty] = useState(false);
@@ -81,6 +82,7 @@ const PropertyCollectionInput = ({ control, className }) => {
         component={Stack}
         padding={1}
         gap={1}
+	sx={{ backgroundColor: "ologBackground.main", border: `2px solid ${theme.palette.ologLine.main}`}}
       >
         <Button
           variant="outlined"

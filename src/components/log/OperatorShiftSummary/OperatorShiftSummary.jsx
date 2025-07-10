@@ -53,7 +53,7 @@ const OperatorShiftSummary = ({control, disabled, form}) => {
         }
         const { watch, setValue } = form;
   return (
-    <Stack  spacing={2} padding={2} sx={{  width: 1, border: `2px solid lightgray`, borderRadius: 1}}>
+    <Stack  spacing={2} padding={2} sx={{  width: 1, border: `2px solid ${theme.palette.ologLine.main}`, borderRadius: 1}}>
       <Typography variant="h5" gutterBottom>
         Operator Shift Summary and Transfer
       </Typography>
@@ -190,7 +190,7 @@ const OperatorShiftSummary = ({control, disabled, form}) => {
       <Stack>
         <Typography variant="h6">Crossover Wiki</Typography>
         <Box alignItems="center" display="flex" sx={{width: 1}}>
-          <Stack spacing={1} padding={1} sx={{  width: 0.5, border: `2px solid lightgray`, borderRadius: 1}} alignItems="center" justifyContent="center" display="flex">
+          <Stack spacing={1} padding={1} sx={{  width: 0.5, border: `2px solid ${theme.palette.ologLine.main}`, borderRadius: 1}} alignItems="center" justifyContent="center" display="flex">
             <Typography>Updated?</Typography>
             <Checkbox
               form={form}
@@ -209,7 +209,7 @@ const OperatorShiftSummary = ({control, disabled, form}) => {
               sx={{width: 1}}
             />
           </Stack>
-          <Stack spacing={1} padding={1} sx={{  width: 0.5, border: `2px solid lightgray`, borderRadius: 1}} alignItems="center" justifyContent="center" display="flex">
+          <Stack spacing={1} padding={1} sx={{  width: 0.5, border: `2px solid ${theme.palette.ologLine.main}`, borderRadius: 1}} alignItems="center" justifyContent="center" display="flex">
             <Typography>Checked?</Typography>
             <Checkbox
               form={form}

@@ -29,7 +29,7 @@ const SearchView = styled(({ className }) => {
   const { id } = useParams();
 
   return (
-    <Box height="100%">
+    <Box height="100%" bgcolor="ologBackground.main">
       <ContentView className={`SearchView ${className}`}>
         <Divider
           sx={{ borderColor: `${theme.palette.ologLine.main}` }}

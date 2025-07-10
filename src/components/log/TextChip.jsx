@@ -7,6 +7,7 @@ export const TextChip = ({ name, value, ...props }) => {
       aria-label={`has ${name}: ${value}`}
       size="small"
       variant="outlined"
+      color="ologBlack"
       {...props}
     />
   );

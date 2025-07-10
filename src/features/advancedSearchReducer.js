@@ -62,6 +62,7 @@ export const advancedSearchSlice = createSlice({
         state.fieldCount = activeFieldCount;
         state.groupedReplies = searchParams.groupedReplies;
         state.condensedEntries = searchParams.condensedEntries;
+        state.individualDays = searchParams.individualDays;
       }
     );
   }

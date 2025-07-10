@@ -77,7 +77,8 @@ const SimpleSearch = () => {
               <SearchIcon
                 sx={{
                   height: "20px",
-                  width: "20px"
+                  width: "20px",
+		  color: "ologIcon.main"
                 }}
               />
             </InputAdornment>

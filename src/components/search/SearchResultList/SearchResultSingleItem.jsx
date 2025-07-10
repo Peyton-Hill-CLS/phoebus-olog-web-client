@@ -25,14 +25,12 @@ export const SearchResultSingleItem = ({
     (state) => state.advancedSearch.condensedEntries
   );
   let entryColor = "entry" + log?.level.replaceAll(" ", "");
-  return [(
-    <Stack>
-      {addSpacer && <Box sx={{height: "10px", bgcolor: 'ologSpacer.main'}}/>}
-    </Stack>), (
-
+  return (
+      
     <Stack
-      px={4}
-      py={!isCondensed ? 0.6 : 0.8}
+      tabIndex={-1}
+      onKeyDown={handleKeyDown}
+      data-id={log.id}i
       sx={{
         position: "relative",
         borderBottom: `1px solid ${theme.palette.ologLine.main}`,
@@ -59,11 +57,13 @@ export const SearchResultSingleItem = ({
         "&:last-child": {
           borderBottom: "none"
         }
-      }}
+      }}>
+    {addSpacer && <Box sx={{height: "10px", bgcolor: 'ologSpacer.main'}}/>}
+
+    <Stack
+      px={4}
+      py={!isCondensed ? 0.6 : 0.8} 
       onClick={() => onClick(log.id)}
-      tabIndex={-1}
-      onKeyDown={handleKeyDown}
-      data-id={log.id}
     >
       <Stack
         flexDirection="row"
@@ -196,5 +196,6 @@ export const SearchResultSingleItem = ({
         </Stack>
       )}
       {expandIcon}
-      </Stack>)];
+      </Stack>
+      </Stack>);
 };

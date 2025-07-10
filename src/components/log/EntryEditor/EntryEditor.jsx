@@ -79,6 +79,7 @@ export const EntryEditor = ({
       margin="0 auto"
       width="100%"
       height="fit-content"
+      sx={{ backgroundColor: "ologBackground.main" }}
     >
       <Typography
         component="h2"
@@ -130,7 +131,12 @@ export const EntryEditor = ({
           form={form}
           name="date"
           onChange={(value, context) => setValue("date", value._d.getTime())}
-          label="Optional Date & Time" />}
+          label="Optional Date & Time" 
+	  sx={{
+	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologLine.main' },
+	    '&:hover .MuiOutlinedInput-notchedOutline': {borderColor: 'ologDarkLine.main'},
+	  }}
+		/>}
         <OperatorShiftSummary
           control={control}
           form={form}
@@ -145,6 +151,12 @@ export const EntryEditor = ({
           type="submit"
           variant="contained"
           disabled={submitDisabled}
+	  sx={{
+              "&.Mui-disabled": {
+                background: "ologDisabled.main",
+                color: "ologLine.main"
+              }
+            }}
         >
           Submit
         </Button>

@@ -136,13 +136,17 @@ const Container = styled(Box)(({ theme }) => {
         table th {
             text-align: left;
             background-color: ${theme.palette.primary.main};
-            color: white;
+            color: ${theme.palette.ologWhite.main};
             padding: 0.5rem 0.3rem;
         }
 
         table tr:nth-of-type(even){
             background-color: ${theme.palette.grey[200]};
         }
+	
+	table tr:nth-of-type(odd) {
+	    background-color: ${theme.palette.ologBackground.main};
+	}
 
         table tr:hover {
             background-color:  ${theme.palette.grey[300]};

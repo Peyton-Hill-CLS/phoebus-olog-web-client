@@ -1,6 +1,7 @@
 import { Box, Stack } from "@mui/material";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import DownloadIcon from "@mui/icons-material/Download";
+import { theme } from "src/config/theme";
 
 export const isLocalFile = (attachment) => {
   return Boolean(attachment?.file);
@@ -46,7 +47,7 @@ export const FileImage = ({ attachment, alt, className, ...props }) => {
               position: "absolute",
               width: "100%",
               height: "100%",
-              background: "white",
+              background: `${theme.palette.ologWhite.main}`,
               opacity: 0.6,
               zIndex: 1
             }}
