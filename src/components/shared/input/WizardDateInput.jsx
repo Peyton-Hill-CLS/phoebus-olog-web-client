@@ -134,7 +134,7 @@ export const ButtonDatePicker = ({
   return (
     <DateTimePicker
       sx={{
-	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologLine.main' },
+	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologCalender.main' },
 	    '&:hover .MuiOutlinedInput-notchedOutline': {borderColor: 'ologDarkLine.main'},
       }}
       value={value ? moment(value) : null}
@@ -158,7 +158,7 @@ export const ButtonDatePicker = ({
           }
         },
 	textField: {
-	  sx: {'& .MuiInputBase-root': { backgroundColor: '#ologBackground.main'},
+	  sx: {'& .MuiInputBase-root': { backgroundColor: '#ologCalender.main'},
       },
     },
 

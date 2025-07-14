@@ -69,7 +69,8 @@ const colors = dark ? {
   "ologNavbar": "#404244",
   "ologBackground": "#101214",
   "ologDarkLine": "#AAAAAA",
-  "ologDisabled": "#FF6666"
+  "ologDisabled": "#FF6666",
+  "ologCalender": "#404444"
 } : {
   "ologCyan": "#0099dc",
   "ologBlack": "#000000",
@@ -114,7 +115,8 @@ const colors = dark ? {
   "ologNavbar": "#E2E8EE",
   "ologBackground": "#ffffff",
   "ologDarkLine": "#000000",
-  "ologDisabled": "#DDDDDD"
+  "ologDisabled": "#DDDDDD",
+  "ologCalender": "#FFFFFF"
 }
 
 

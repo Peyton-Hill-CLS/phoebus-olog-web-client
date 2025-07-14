@@ -67,6 +67,10 @@ const DaySearch = () => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return new Intl.DateTimeFormat('en-US', options).format(day);
   };
+ 
+  if(searchParams.start.length === 0) {
+    setDate(new Date());
+  }
 
     return (
     <Stack

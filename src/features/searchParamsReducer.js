@@ -19,7 +19,7 @@ export const defaultSearchParams = {
   attachments: "",
   groupedReplies: true,
   condensedEntries: false,
-  individualDays: true
+  individualDays: false
 };
 export const defaultSearchParamsState = {
   ...defaultSearchParams,

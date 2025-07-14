@@ -1,10 +1,17 @@
-# Node 18
-FROM node:18-alpine
-RUN apk update && apk add curl bash
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY . ./
-RUN npm ci --silent
+FROM nginx:alpine
 
-# start app
-CMD ["npm", "start"]
+# Remove default Nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built Vite files
+COPY build/ /usr/share/nginx/html
+
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 3000
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+
