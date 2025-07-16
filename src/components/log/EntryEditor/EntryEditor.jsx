@@ -26,6 +26,7 @@ import EntryTypeSelect from "components/shared/input/managed/EntryTypeSelect";
 import { PropertyCollectionInput } from "components/shared/input/managed/PropertyCollectionInput";
 import { ologApi } from "src/api/ologApi";
 import { OperatorShiftSummary } from "components/log/OperatorShiftSummary/OperatorShiftSummary";
+import WizardDateInput from "components/shared/input/WizardDateInput";
 
 export const EntryEditor = ({
   form,
@@ -127,7 +128,7 @@ export const EntryEditor = ({
           }}
         />
         {renderDateTime &&
-        <DateTimePicker
+        <WizardDateInput
           form={form}
           name="date"
           onChange={(value, context) => setValue("date", value._d.getTime())}

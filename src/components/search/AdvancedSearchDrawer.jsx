@@ -11,6 +11,8 @@ import TagsMultiSelect from "components/shared/input/managed/TagsMultiSelect";
 import { Checkbox } from "components/shared/input/Checkbox";
 import { defaultSearchParams } from "features/searchParamsReducer";
 import { updateAdvancedSearch } from "src/features/advancedSearchThunk";
+import { PersistentCheckbox } from "components/shared/input/PersistentCheckbox";
+import { setDate } from "components/search/DaySearch";
 
 const toDate = (dateString) => {
   if (dateString) {
@@ -20,7 +22,7 @@ const toDate = (dateString) => {
   }
 };
 
-export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
+export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen, individualDays, setIndividualDays }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const form = useForm({
@@ -38,11 +40,23 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
   };
 
   const applyFilters = () => {
+    const vals = getValues();
+    if(individualDays) {
+      if(vals.start != null && vals.start.length !== 0) {
+	 setDate(new Date(vals.start), vals, dispatch);
+	 return;
+      }
+    } 
     dispatch(updateAdvancedSearch(getValues()));
   };
 
   const handleSelectChange = (field, value) => {
     field.onChange(value);
+    
+    //if(individualDays) {
+      console.log(field);
+    //}
+
     applyFilters();
   };
 
@@ -125,7 +139,7 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
               timeParadox: (val) => {
                 const startDate = toDate(val);
                 const endDate = toDate(getValues("end"));
-                if (startDate && endDate) {
+                if (startDate && endDate && !individualDays) {
                   return (
                     startDate <= endDate ||
                     "Start date cannot come after end date"
@@ -137,6 +151,7 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
             }
           }}
         />
+	  { !individualDays &&  
         <WizardDateInput
           name="end"
           label="End Time"
@@ -151,7 +166,7 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
               timeParadox: (val) => {
                 const startDate = toDate(getValues("start"));
                 const endDate = toDate(val);
-                if (startDate && endDate) {
+                if (startDate && endDate && !individualDays) {
                   return (
                     endDate > startDate ||
                     "End date cannot come before start date"
@@ -162,7 +177,7 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
               }
             }
           }}
-        />
+        />}
         <TextInput
           name="attachments"
           label="Attachments"
@@ -193,13 +208,8 @@ export const AdvancedSearchDrawer = ({ searchParams, advancedSearchOpen }) => {
             control={control}
             onChange={handleSelectChange}
           />
-	  <Checkbox
-	    name="individualDays"
-	    label="Individual Days"
-	    control={control}
-	    onChange={handleSelectChange}
-	  />
-                    <Button
+	  <PersistentCheckbox checked={individualDays} setChecked={setIndividualDays} label="Individual Days" storage="individualDays"/>
+          <Button
             type="submit"
             sx={{ display: "none" }}
           />

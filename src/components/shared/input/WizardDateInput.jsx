@@ -30,6 +30,9 @@ import { useController } from "react-hook-form";
 import { DateTimePicker, pickersLayoutClasses } from "@mui/x-date-pickers";
 import { useLocaleText } from "@mui/x-date-pickers/internals";
 import moment from "moment";
+import { GlobalStyles } from '@mui/material';
+
+const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 const DATE_FORMAT = "YYYY-MM-DD HH:mm";
 
@@ -131,7 +134,36 @@ export const ButtonDatePicker = ({
 }) => {
   const [open, setOpen] = useState(false);
 
-  return (
+  return [(
+    <> { dark && <style>{` 
+	.MuiDayCalendar-weekDayLabel {
+  	  color: white !important;
+	  font-weight: bold;
+	}
+	.MuiPickersDay-root.Mui-disabled {
+	  color: #aaaaaa !important;
+	  opacity: 1 !important;
+	}
+	.MuiPickersArrowSwitcher-button .MuiSvgIcon-root {
+	  color: #a1a1a1 !important;
+	}
+	.MuiPickersToolbar-penIconButton .MuiSvgIcon-root {
+	  color: #a1a1a1 !important;
+	}
+	.MuiClockPicker-root .MuiSvgIcon-root {
+	  color: #a1a1a1 !important;
+	}
+	.MuiPickersToolbarButton-root .MuiSvgIcon-root {
+	  color: #a1a1a1 !important;
+	}
+	.MuiPickersCalendarHeader-root .MuiIconButton-root .MuiSvgIcon-root {
+	  color: #a1a1a1 !important;
+	}
+	.MuiPickersYear-yearButton.Mui-disabled {
+          color: #aaaaaa !important;
+  	  opacity: 1 !important;
+	}
+	    `} </style>      }
     <DateTimePicker
       sx={{
 	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologCalender.main' },
@@ -171,7 +203,8 @@ export const ButtonDatePicker = ({
       disableFuture
       {...props}
     />
-  );
+    </>
+  )];
 };
 
 const WizardDateInput = styled(

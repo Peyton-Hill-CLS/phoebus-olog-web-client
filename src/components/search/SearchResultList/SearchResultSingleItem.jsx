@@ -96,7 +96,7 @@ export const SearchResultSingleItem = ({
           fontWeight="bold"
           noWrap
           textOverflow="ellipsis"
-          sx={{ color: theme.palette[entryColor].main }}
+          sx={{ color: `${theme.palette.hasOwnProperty(entryColor) ? theme.palette[entryColor].main : "ologBlack.main"}` }}
         >
           {log.title}
         </Typography>

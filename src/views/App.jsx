@@ -28,6 +28,8 @@ import { theme } from "src/config/theme";
 import { useSearchParams } from "src/features/searchParamsReducer";
 import customization from "src/config/customization";
 
+
+
 const Overlay = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     position: "fixed",
@@ -46,6 +48,7 @@ const App = styled(({ className }) => {
   const searchParams = useSearchParams();
   const { pathname } = useLocation();
   const [advancedSearchOpen, setAdvancedSearchOpen ] = useState(false);
+  const [individualDays, setIndividualDays ] = useState(true);
 
   useEffect(() => {
     document.body.style.backgroundColor = `${theme.palette.ologBackground.main}`;
@@ -79,6 +82,8 @@ const App = styled(({ className }) => {
           <AdvancedSearchDrawer
             advancedSearchOpen={advancedSearchOpen}
             searchParams={searchParams}
+	    individualDays={individualDays}
+	    setIndividualDays={setIndividualDays}
           />
         )}
         <Box
@@ -97,6 +102,7 @@ const App = styled(({ className }) => {
           <AppNavBar
             advancedSearchOpen={advancedSearchOpen}
             setAdvancedSearchOpen={setAdvancedSearchOpen}
+	    individualDays={individualDays}
           />
           <Outlet />
         </Box>

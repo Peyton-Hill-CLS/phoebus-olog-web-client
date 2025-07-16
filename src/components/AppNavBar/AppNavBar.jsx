@@ -55,7 +55,7 @@ import { theme } from "src/config/theme";
 import { updateAdvancedSearch } from "src/features/advancedSearchThunk";
 import { onHomePage } from "src/hooks/isHomePage";
 
-const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
+const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen, individualDays}) => {
   const user = useUser();
   const navigate = useNavigate();
   const location = useLocation();
@@ -67,7 +67,6 @@ const AppNavBar = ({ advancedSearchOpen, setAdvancedSearchOpen }) => {
   const dispatch = useDispatch();
   const { setShowLogout } = useShowLogout();
   
-  const individualDays = useSelector((state) => state.advancedSearch.individualDays);
 
   const toggleSort = () => {
     dispatch(

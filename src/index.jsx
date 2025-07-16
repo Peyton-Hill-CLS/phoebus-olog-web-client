@@ -25,6 +25,7 @@ import {
 } from "./providers";
 import { AppErrorBoundary } from "./components/shared/error/ErrorBoundary";
 
+
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(

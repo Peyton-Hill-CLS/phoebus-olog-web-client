@@ -25,7 +25,7 @@ const LogDetails = ({ log, className }) => {
       <Typography
         component="h2"
         fontWeight="600"
-        sx={{ fontSize: "1.4rem", color: theme.palette[entryColor].main }}
+        sx={{ fontSize: "1.4rem", color: `${theme.palette.hasOwnProperty(entryColor) ? theme.palette[entryColor].main : "ologBlack.main"}`}}
       >
         {log.title}
       </Typography>

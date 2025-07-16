@@ -23,6 +23,8 @@ export let theme = createTheme({});
 //const dark = false;
 const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+
+
 const colors = dark ? {
   "ologCyan": "#00709c",
   //"ologCyan": "#0080ac",
@@ -70,7 +72,7 @@ const colors = dark ? {
   "ologBackground": "#101214",
   "ologDarkLine": "#AAAAAA",
   "ologDisabled": "#FF6666",
-  "ologCalender": "#404444"
+  "ologCalender": "#2a2d31"
 } : {
   "ologCyan": "#0099dc",
   "ologBlack": "#000000",
@@ -204,7 +206,7 @@ theme = createTheme(theme, {
     MuiPickersPopper: {
       styleOverrides: {
         paper: {
-          backgroundColor: theme.palette.ologLine.main, // Popup background
+          backgroundColor: theme.palette.ologCalender.main, // Popup background
           color: theme.palette.ologDarkLine.main,           // Text color
         },
       },
@@ -223,6 +225,19 @@ theme = createTheme(theme, {
         },
       },
     },
-
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.ologBlack.main, // Default date number color
+          '&.Mui-selected': {
+            backgroundColor: theme.palette.primary.main, // Selected date background
+            color: 'white', // Selected date text
+          },
+          '&:hover': {
+            backgroundColor: 'lightblue',
+          },
+	},
+      },
+    },
   }
 });

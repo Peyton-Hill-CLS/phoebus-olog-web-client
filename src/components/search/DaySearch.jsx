@@ -18,12 +18,6 @@ import useSanitizedSearchParams, {
 } from "hooks/useSanitizedSearchParams";
 import { updateAdvancedSearch } from "src/features/advancedSearchThunk";
 
-const DaySearch = () => {
-  const dispatch = useDispatch();
-  const searchParams = useSearchParams();
-  const { toSearchParams, toQueryString } = useSanitizedSearchParams();
-
-
   const formatDate = function(date) {     
     return  date.getFullYear() + '-' +
       String(date.getMonth() + 1).padStart(2, '0') + '-' +
@@ -32,45 +26,47 @@ const DaySearch = () => {
       String(date.getMinutes()).padStart(2, '0');
   }
 
-  const setDate = function(date) {
-    let params = {...searchParams};  
+  export const setDate = function(date, sParams, dispatch) {
+    let params = {...sParams};  
     params.start = formatDate(new Date(date.getFullYear(), date.getMonth(), date.getDate())); 
     params.end = formatDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1));
     dispatch(updateAdvancedSearch(params));
-  }  
+  }
 
+const DaySearch = () => {
+  const dispatch = useDispatch();
+  const searchParams = useSearchParams();
+  const { toSearchParams, toQueryString } = useSanitizedSearchParams();
 
   const onPrevious = () => {
-    const currentDate = searchParams.start.length !== 0 ? new Date(searchParams.start) : new Date();
+    const currentDate = searchParams.start == null || searchParams.start.length === 0 ? new Date() : new Date(searchParams.start);
     currentDate.setDate(currentDate.getDate() - 1);
-    setDate(currentDate);
+    setDate(currentDate, searchParams, dispatch);
   };
 
   const onNext = () => {
-    let currentDate = searchParams.start.length !== 0 ? new Date(searchParams.start) : new Date();
+    let currentDate = searchParams.start == null || searchParams.start.length === 0 ? new Date() : new Date(searchParams.start);
     currentDate.setDate(currentDate.getDate() + 1);
     if(currentDate > Date.now()) {
       currentDate = new Date();
     }
-    console.log(currentDate);
-    setDate(currentDate);
-  };
-
-  const onToday = () => {
-    let params = {...searchParams};
-    const date = Date.now();
+    setDate(currentDate, searchParams, dispatch);
   };
 
   const getDay = () => {
-    const day = searchParams.start.length !== 0 ? new Date(searchParams.start) : new Date();
-    
+    const day = searchParams.start == null || searchParams.start.length === 0 ? new Date() : new Date(searchParams.start);
+    searchParams.start == null || searchParams.start.length === 0 ? new Date() : new Date(searchParams.start);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return new Intl.DateTimeFormat('en-US', options).format(day);
   };
- 
-  if(searchParams.start.length === 0) {
-    setDate(new Date());
-  }
+
+  
+  useEffect(() => {
+    if(searchParams.start == null || searchParams.start.length === 0 || searchParams.end == null || searchParams.end.length === 0) {
+      setDate(new Date(), searchParams, dispatch);
+    }
+  }, []);
+
 
     return (
     <Stack
