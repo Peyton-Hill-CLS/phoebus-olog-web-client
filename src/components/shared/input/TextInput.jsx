@@ -21,15 +21,15 @@ export const TextInput = styled(
             fontSize: ".9rem",
             top: "-4px"
           },
-	  input: { color: 'red' },
+          input: { color: 'red' },
           "& .MuiInputLabel-shrink": { top: 0 },
           "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' }, 
-	  "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
-  	  "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
-  	  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
-  	  "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" }
-	}}
-	{...field}
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
+          "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
+          "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" }
+        }}
+        {...field}
         {...props}
       />
     );

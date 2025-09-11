@@ -28,15 +28,30 @@ export const MultiTextInput = styled(
   };
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 500 }}>
+    <Box sx={{ width: '100%'}}>
       <TextField
         fullWidth
         label="Add item"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
+        sx={{
+          "& .MuiInputLabel-shrink": { top: 0 },
+          "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' },
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
+          "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
+          "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" }
+        }}
       />
-      <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', gap: 1,
+          "& .MuiInputLabel-shrink": { top: 0 },
+          "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' },
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
+          "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "ologDarkLine.main" },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "primary.main" },
+          "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" }
+      }}>
         {items.map((item, index) => (
           <Chip
             key={index}
@@ -48,7 +63,7 @@ export const MultiTextInput = styled(
       </Box>
     </Box>
   );
-});
+})({});
 
 export default MultiTextInput;
 
