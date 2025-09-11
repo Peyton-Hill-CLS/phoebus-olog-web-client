@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Chip, Box } from '@mui/material';
+import { TextField, Chip, Box, styled } from '@mui/material';
 
 export const MultiTextInput = styled(
   ({
