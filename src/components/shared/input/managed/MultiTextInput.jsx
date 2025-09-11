@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { TextField, Chip, Box } from '@mui/material';
 
-export default function MultiTextInput({
+export const MultiTextInput = styled(
+  ({
   name,
   form
-}) {
+}) => {
   const { control, setValue, trigger } = form;
 
   const [items, setItems] = useState([]);
@@ -13,7 +14,7 @@ export default function MultiTextInput({
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && inputValue.trim() !== '') {
       e.preventDefault();
-      itemList = [...items, inputValue.trim()]
+      const itemList = [...items, inputValue.trim()]
       setValue(name, itemList)
       setItems(itemList);
       setInputValue('');
@@ -21,7 +22,7 @@ export default function MultiTextInput({
   };
 
   const handleDelete = (itemToDelete) => {
-    itemList = items.filter(item => item !== itemToDelete);
+    const itemList = items.filter(item => item !== itemToDelete);
     setValue(name, itemList)
     setItems(itemList);
   };
@@ -47,5 +48,7 @@ export default function MultiTextInput({
       </Box>
     </Box>
   );
-}
+});
+
+export default MultiTextInput;
 
