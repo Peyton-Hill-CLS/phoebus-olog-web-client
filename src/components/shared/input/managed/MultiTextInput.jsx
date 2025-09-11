@@ -58,6 +58,8 @@ export const MultiTextInput = styled(
             label={item}
             onDelete={() => handleDelete(item)}
             variant="outlined"
+            color="ologBlack"
+            sx={{ padding: "1px 0 1px 3px", width: "15px"}}
           />
         ))}
       </Box>
