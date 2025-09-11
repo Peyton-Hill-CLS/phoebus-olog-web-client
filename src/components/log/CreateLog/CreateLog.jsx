@@ -51,6 +51,7 @@ const CreateLog = ({ isAuthenticated }) => {
       properties: formData.properties,
       title: formData.title,
       level: formData.level,
+      forwardTo: formData.forwardTo ?? [],
       description: (summaryData + formData.description),
       attachments: formData.attachments ?? []
     };

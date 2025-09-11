@@ -27,6 +27,7 @@ import { PropertyCollectionInput } from "components/shared/input/managed/Propert
 import { ologApi } from "src/api/ologApi";
 import { OperatorShiftSummary } from "components/log/OperatorShiftSummary/OperatorShiftSummary";
 import WizardDateInput from "components/shared/input/WizardDateInput";
+import MultiTextInput from "components/shared/input/managed/MultiTextInput"
 
 export const EntryEditor = ({
   form,
@@ -137,7 +138,11 @@ export const EntryEditor = ({
 	    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'ologLine.main' },
 	    '&:hover .MuiOutlinedInput-notchedOutline': {borderColor: 'ologDarkLine.main'},
 	  }}
-		/>}
+        />}
+        {renderDateTime &&
+          <MultiTextInput
+          name="forwardTo"
+          form={form}/>}
         <OperatorShiftSummary
           control={control}
           form={form}
