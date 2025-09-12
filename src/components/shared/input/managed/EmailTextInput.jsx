@@ -42,6 +42,11 @@ export const EmailTextInput = styled(
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
         sx={{
+          "& .MuiFormLabel-root": {
+            fontSize: ".9rem",
+            top: "-4px"
+          },
+          paddingBottom: 2,
           "& .MuiInputLabel-shrink": { top: 0 },
           "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' },
           "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
@@ -50,7 +55,7 @@ export const EmailTextInput = styled(
           "& .MuiInputLabel-root.Mui-focused": { color: "primary.main" }
         }}
       />
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2,
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, minHeight: 0,
           "& .MuiInputLabel-shrink": { top: 0 },
           "& .MuiInputBase-input": { padding: "12.5px 15px", fontSize: ".9rem", color: 'ologBlack.main' },
           "& .MuiOutlinedInput-notchedOutline": { borderColor: "ologLine.main" },
